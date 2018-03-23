@@ -19,10 +19,11 @@ export const toUrlParams = props => Object.keys(props)
 .join('&')
 
 
-export const parseUrl = url => {
-  const a = document.createElement('a')
-  a.href = url
-  return a
+export const getBaseUrl = url => {
+	const pathArray = url.split('/')
+	const protocol = pathArray[0]
+	const host = pathArray[2]
+	return protocol + '//' + host
 }
 
 export const lockScrolling = () => {
